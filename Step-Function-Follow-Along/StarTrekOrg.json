@@ -1,5 +1,5 @@
 // Step Function for StarTrekOrg
-// Completed at 15:23 in Follow-Along
+// Completed at 23:53 in Follow-Along
 
 {
   "Comment": "Star Trek Actor Organizer",
@@ -7,7 +7,8 @@
   "StartAt": "RecognizeState",
   "States": {
     "RecognizeState": {
-      "Type": "Pass",
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:495219756612:function:StarTrekOrgRecognize",
       "Next": "RecordState"
     },
     "RecordState": {
