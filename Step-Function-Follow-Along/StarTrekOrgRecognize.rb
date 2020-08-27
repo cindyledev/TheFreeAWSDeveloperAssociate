@@ -1,5 +1,5 @@
 # Lambda Function for StarTrekOrgRecognize
-# Completed at 21:40 in Follow-Along
+# Completed at 22:54 in Follow-Along
 
 require 'json'
 require "aws-sdk-rekognition"
@@ -14,6 +14,12 @@ def lambda_handler(event:, context:)
             }
         }
     }) # recognize_celebrities
-    puts resp.celebrity_faces
+    results = []
+    resp.celebrity_faces.each do |celeb|
+        results.push({
+            name: celeb.name
+        })
+    end
+    puts results
     return {}
 end
