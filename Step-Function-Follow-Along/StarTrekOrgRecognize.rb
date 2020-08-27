@@ -1,5 +1,5 @@
 # Lambda Function for StarTrekOrgRecognize
-# Completed at 22:54 in Follow-Along
+# Completed at 23:16 in Follow-Along
 
 require 'json'
 require "aws-sdk-rekognition"
@@ -21,5 +21,6 @@ def lambda_handler(event:, context:)
         })
     end
     puts results
-    return {}
+    return { celebrities: results }
 end
+
